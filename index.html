@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stone Paper Shears</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script src="script.js"></script>
+    <div class="rules">
+        <h1>STONE PAPER SHEARS</h1>
+        <p>Stone beats Shears | Paper beats Stone | Shears beats Paper</p>
+        <p id="outcome-prev">...</p>
+    </div>
+    <div class="card" id="player">
+        <div id="human" class="player">
+            <img id="steve" src="images/steve.webp", alt="Steve">
+            <div class="lives-container">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+            </div>
+        </div>
+        <div class="choices">
+            <img class="stone" src="images/stone.webp" alt="Stone">
+            <img class="paper" src="images/paper.webp" alt="Paper">
+            <img class="shears" src="images/shears.webp" alt="Shears">
+        </div>
+    </div>
+    <div class="card" id="enemy">
+        <div id="computer" class="player">
+            <img id="herobine" src="images/herobrine.webp", alt="Herobrine">
+            <div class="lives-container">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+                <img src="images/heart.png" alt="Heart">
+            </div>
+        </div>
+        <div class="choices">
+            <img class="stone" src="images/stone.webp" alt="Stone">
+            <img class="paper" src="images/paper.webp" alt="Paper">
+            <img class="shears" src="images/shears.webp" alt="Shears">
+        </div>
+    </div>
 </body>
 </html>
