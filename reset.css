@@ -1,0 +1,40 @@
+/* CSS Reset */
+/* Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Remove list styles (bullets/numbers) */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove underlines from links */
+a {
+    text-decoration: none;
+}
+
+/* Remove default font styles */
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+/* Reset form elements to default styles */
+input, button, select, textarea {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Reset block-level elements to remove spacing */
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, pre, blockquote, form, table {
+    margin: 0;
+    padding: 0;
+}
