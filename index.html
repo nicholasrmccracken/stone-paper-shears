@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stone Paper Shears</title>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
-    <div class="rules">
-        <h1>STONE PAPER SHEARS</h1>
-        <p>Stone beats Shears | Paper beats Stone | Shears beats Paper</p>
-        <p id="outcome-prev">...</p>
-    </div>
-    <div class="card" id="player">
-        <div id="human" class="player">
-            <img id="steve" src="images/steve.webp", alt="Steve">
-            <div class="lives-container">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
+    <header>
+        <h1>STONE. PAPER. SHEARS.</h1>
+        <p>Stone beats Shears  /  Paper beats Stone  /  Shears beats Paper</p>
+    </header>
+    <div id="cards-container">
+        <div class="card">
+            <div class="player" id="human">
+                <img id="steve" src="images/steve.jpeg", alt="Steve">
+                <div class="lives-container">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                </div>
+            </div>
+            <div class="choices" id="selectable">
+                <img class="stone" src="images/stone.webp" alt="Stone">
+                <img class="paper" src="images/paper.webp" alt="Paper">
+                <img class="shears" src="images/shears.webp" alt="Shears">
             </div>
         </div>
-        <div class="choices">
-            <img class="stone" src="images/stone.webp" alt="Stone">
-            <img class="paper" src="images/paper.webp" alt="Paper">
-            <img class="shears" src="images/shears.webp" alt="Shears">
-        </div>
-    </div>
-    <div class="card" id="enemy">
-        <div id="computer" class="player">
-            <img id="herobine" src="images/herobrine.webp", alt="Herobrine">
-            <div class="lives-container">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
-                <img src="images/heart.png" alt="Heart">
+        <div class="card">
+            <div class="player" id="computer">
+                <img id="herobine" src="images/herobrine.webp", alt="Herobrine">
+                <div class="lives-container">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                    <img src="images/heart.png" alt="Heart">
+                </div>
             </div>
-        </div>
-        <div class="choices">
-            <img class="stone" src="images/stone.webp" alt="Stone">
-            <img class="paper" src="images/paper.webp" alt="Paper">
-            <img class="shears" src="images/shears.webp" alt="Shears">
-        </div>
+            <div class="choices">
+                <img class="stone" src="images/stone.webp" alt="Stone">
+                <img class="paper" src="images/paper.webp" alt="Paper">
+                <img class="shears" src="images/shears.webp" alt="Shears">
+            </div>
     </div>
+    <footer><p>Crafted by GitHub @ <a href="https://github.com/nicholasrmccracken">nicholasrmccracken</a></p></footer>
 </body>
 </html>

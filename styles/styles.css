@@ -1,0 +1,77 @@
+:root {
+    --tie-border-color: rgb(77, 78, 77);
+    --win-border-color: rgb(40, 101, 40);
+    --loss-border-color: rgb(109, 39, 39);
+}
+
+body {
+    background-image: url("../images/dirt-background.webp");
+    background-size: cover;
+    text-align: center;
+    color: white;
+    font-family: 'Minecraft', sans-serif;
+}
+
+header {
+    border-width: 6px;
+    margin: 24px;
+    padding: 24px;
+}
+
+header h1 { font-size: 3rem; }
+header p { font-size: 2rem; }
+
+#cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.card {
+    border: 8px solid var(--tie-border-color);
+    border-radius: 13px;
+    background-image: url("../images/wood-background.webp");
+    background-size: cover;
+    padding: 24px;
+}
+
+.card img {
+    width: 125px;
+    height: 125px;
+}
+
+.lives-container img {
+    width: 70px;
+    height: 70px;
+    margin: 8px;
+}
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.choices { 
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.choices#selectable img {
+    transition: all 0.4s;
+}
+
+.choices#selectable img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 20px;
+    margin: 35px;
+}
