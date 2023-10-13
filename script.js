@@ -1,65 +1,119 @@
+const stone = document.querySelector('#selectable .stone');
+stone.addEventListener('click', () => {
+    playRound('stone', getComputerChoice());
+    return false;
+});
+
+const paper = document.querySelector('#selectable .paper');
+paper.addEventListener('click', () => {
+    playRound('paper', getComputerChoice());
+    return false;
+});
+
+const shears = document.querySelector('#selectable .shears');
+shears.addEventListener('click', () => {
+    playRound('shears', getComputerChoice());
+    return false;
+});
+
+let playerLives = 5, computerLives = 5;
+
 function getComputerChoice() {
-    const choices = ["rock", "paper", "scissors"];
-    return choices[Math.floor(Math.random() * choices.length)];
+    const choices = ['stone', 'paper', 'shears'];
+    const choice = choices[Math.floor(Math.random() * choices.length)];
+    
+    document.querySelectorAll('#unselectable img').forEach(image => {
+        image.style.transform = 'scale(1)';
+    });
+
+    document.querySelector(`#unselectable .${choice}`).style.transform = 'scale(1.25)';
+
+    return choice
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+    playerBorder = document.querySelector('#player');
+    computerBorder = document.querySelector('#computer');
+
+    const outcomes = {
+        'tie' : () => {
+            playerBorder.style.border = '8px solid var(--tie-border-color)';
+            computerBorder.style.border = '8px solid var(--tie-border-color)';
+        },
+        'win' : () => {
+            playerBorder.style.border = '8px solid var(--win-border-color)';
+            computerBorder.style.border = '8px solid var(--loss-border-color)';
+
+            computerHearts = document.querySelector('#computer .lives-container');
+            computerHearts.children[computerLives - 1].setAttribute('src', 'images/empty-heart.png');
+            computerLives--;
+
+            checkResult();
+        },
+        'loss' : () => {
+            playerBorder.style.border = '8px solid var(--loss-border-color)';
+            computerBorder.style.border = '8px solid var(--win-border-color)';
+
+            playerHearts = document.querySelector('#player .lives-container');
+            playerHearts.children[playerLives - 1].setAttribute('src', 'images/empty-heart.png');
+            playerLives--;
+            
+            checkResult();
+        }
+    };
 
     if (playerSelection === computerSelection) {
-        return `It was a draw! You both chose ${playerSelection}.`;
+        outcomes['tie']();
     } else {
         switch (playerSelection) {
-            case "rock":
-                if (computerSelection === "paper") {
-                    return `You lose! ${computerSelection} beats ${playerSelection}.`;
+            case 'stone':
+                if (computerSelection === 'paper') {
+                    outcomes['loss']();
                 } else {
-                    return `You win! ${playerSelection} beats ${computerSelection}.`;
+                    outcomes['win'];
                 }
+            break;
 
-            case "paper":
-                if (computerSelection === "scissors") {
-                    return `You lose! ${computerSelection} beats ${playerSelection}.`;
+            case 'paper':
+                if (computerSelection === 'shears') {
+                    outcomes['loss']();
                 } else {
-                    return `You win! ${playerSelection} beats ${computerSelection}.`;
+                    outcomes['win']();
                 }
+            break;
 
-            case "scissors":
-                if (computerSelection === "rock") {
-                    return `You lose! ${computerSelection} beats ${playerSelection}.`;
+            case 'shears':
+                if (computerSelection === 'stone') {
+                    outcomes['loss']();
                 } else {
-                    return `You win! ${playerSelection} beats ${computerSelection}.`;
+                    outcomes['win']();
                 }
-
-            default:
-                return `Your input ${playerSelection} was invalid!`;
+            break;
         }
     }
 }
 
-function game() {
-    const roundsToWin = Math.floor(parseInt(prompt("How many rounds would you like to play: ")) / 2);
-    let playerWins = 0, computerWins = 0;
+function checkResult() {
+    gameEnd = document.querySelector('#game-end-screen');
 
-    while (playerWins < roundsToWin && computerWins < roundsToWin) {
-        const playerChoice = prompt("Choose rock, paper, or scissors: ");
-        const result = playRound(playerChoice, getComputerChoice());
-
+    if (playerLives === 0) {
+        gameEnd.style.backgroundColor = 'rgba(109, 39, 39, var(--game-end-opacity))';
+        gameEnd.children[0].textContent = 'You died!';
         
-        if (result.includes("lose")) {
-            computerWins++;
-        } else if (result.includes("win")) {
-            playerWins++;
-        }
+        score = document.querySelector('#game-end-screen span');
+        score.textContent = `Herobrine had ${computerLives} lives left!`;
 
-        console.log(result);
-    }
+        gameEnd.style.display = 'flex';
 
-    if (playerWins >= roundsToWin) {
-        console.log("You are the winner!");
-    } else {
-        console.log("You are the loser!");
+        resetGame();
+    } else if (computerLives === 0) {
+        gameEnd.style.display = 'flex';
+
+        resetGame();
     }
 }
 
-game()
+function resetGame() {
+    respawn = document.querySelector('#game-end-screen img');
+    respawn.addEventListener('click', () => location.reload());
+}

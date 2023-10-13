@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,9 +15,9 @@
         <p>Stone beats Shears  /  Paper beats Stone  /  Shears beats Paper</p>
     </header>
     <div id="cards-container">
-        <div class="card">
-            <div class="player" id="human">
-                <img id="steve" src="images/steve.jpeg", alt="Steve">
+        <div class="card" id="player">
+            <div class="lives">
+                <img src="images/steve.jpeg" alt="Steve">
                 <div class="lives-container">
                     <img src="images/heart.png" alt="Heart">
                     <img src="images/heart.png" alt="Heart">
@@ -32,9 +32,9 @@
                 <img class="shears" src="images/shears.webp" alt="Shears">
             </div>
         </div>
-        <div class="card">
-            <div class="player" id="computer">
-                <img id="herobine" src="images/herobrine.webp", alt="Herobrine">
+        <div class="card" id="computer">
+            <div class="lives">
+                <img src="images/herobrine.webp" alt="Herobrine">
                 <div class="lives-container">
                     <img src="images/heart.png" alt="Heart">
                     <img src="images/heart.png" alt="Heart">
@@ -43,12 +43,17 @@
                     <img src="images/heart.png" alt="Heart">
                 </div>
             </div>
-            <div class="choices">
+            <div class="choices" id="unselectable">
                 <img class="stone" src="images/stone.webp" alt="Stone">
                 <img class="paper" src="images/paper.webp" alt="Paper">
                 <img class="shears" src="images/shears.webp" alt="Shears">
             </div>
     </div>
     <footer><p>Crafted by GitHub @ <a href="https://github.com/nicholasrmccracken">nicholasrmccracken</a></p></footer>
+    <div id="game-end-screen">
+        <p>You survived!</p>
+        <p id="score">Score: <span>Herobrine has been defeated!</span></p>
+        <img src="images/respawn.png" Alt="Respawn">
+    </div>
 </body>
 </html>
