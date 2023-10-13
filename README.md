@@ -11,6 +11,5 @@ A front-end UI using HTML and CSS was constructed to support clickable buttons i
 
 ### Learned:
 - Implemented custom font pack using CSS
-- Basics of event listeners
 - Basics of DOM manipulation via JavaScript functions
 - Expanded knowledge of JavaScript file organization, scopes, calling, invoking, events, etc
