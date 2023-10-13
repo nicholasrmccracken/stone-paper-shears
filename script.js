@@ -1,19 +1,12 @@
-const stone = document.querySelector('#selectable .stone');
-stone.addEventListener('click', () => {
-    playRound('stone', getComputerChoice());
-    return false;
-});
-
-const paper = document.querySelector('#selectable .paper');
-paper.addEventListener('click', () => {
-    playRound('paper', getComputerChoice());
-    return false;
-});
-
-const shears = document.querySelector('#selectable .shears');
-shears.addEventListener('click', () => {
-    playRound('shears', getComputerChoice());
-    return false;
+const selectable = document.querySelector('#selectable');
+selectable.addEventListener('click', (e) => {
+    if (e.target && e.target.classList.contains('stone')) {
+        playRound('stone', getComputerChoice());
+    } else if (e.target && e.target.classList.contains('paper')) {
+        playRound('paper', getComputerChoice());
+    } else if (e.target && e.target.classList.contains('shears')) {
+        playRound('shears', getComputerChoice());
+    }
 });
 
 let playerLives = 5, computerLives = 5;
@@ -70,7 +63,7 @@ function playRound(playerSelection, computerSelection) {
                 if (computerSelection === 'paper') {
                     outcomes['loss']();
                 } else {
-                    outcomes['win'];
+                    outcomes['win']();
                 }
             break;
 
